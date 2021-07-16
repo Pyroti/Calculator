@@ -1,18 +1,38 @@
-export const Calculator = function () {
+
+const commands = [];
+const Calculator = function () {
 
   let current = 0;
+  let i = 0;
 
   return {
     execute(command) {
 
+      console.log(`добавлен ${++i} в стек ${current} :  ${command.value}`);
       current = command.execute(current, command.value);
-      // console.log(`${command.value}`);
+      commands.push(command);
+      console.log(commands);
 
     },
+    undo() {
 
-    setValue(value) {
+      if (commands.length > 0) {
+
+        const command = commands.pop();
+        console.log(`удален  ${--i} из стек текущий ${current} : команд вэлю ${command.value}`);
+        current = command.undo(current, command.value);
+
+      }
+
+    },
+    setValue(value, oper) {
 
       current = value;
+      if (oper === 'AC') {
+
+        commands.length = 0;
+
+      }
 
     },
 
@@ -20,7 +40,10 @@ export const Calculator = function () {
 
       return current;
 
-    },
+    }
   };
 
 };
+
+export { Calculator };
+

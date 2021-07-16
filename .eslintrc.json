@@ -15,14 +15,14 @@
 }*/
 {
     "extends": "airbnb",
-    "parser": "babel-eslint",
     "env": {
       "browser": true,
-      "node": false,
+      "node": true,
       "es6": true,
       "mocha": false
     },
     "parserOptions": {
+        "parser": "babel-eslint",
         "sourceType": "module"
     },
     "ecmaFeatures": {
@@ -70,7 +70,9 @@
         5
       ],
       "linebreak-style": ["error", "windows"],
-      "import/prefer-default-export": "off"
+      "import/prefer-default-export": "off",
+      "comma-dangle": ["error", "never"],
+      "no-multiple-empty-lines": ["error", { "max": 2, "maxEOF": 1 }]
     }
   }
   
