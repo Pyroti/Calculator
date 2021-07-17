@@ -13,12 +13,11 @@ const trt = (x) => x ** (1 / 3);
 const ysq = (x, y) => x ** y;
 const yrt = (x, y) => x ** (1 / y);
 const exp = (x) => Math.E ** x;
-const reexp = (x) => Math.E ** (1 / x);
-const log = (x) => Math.exp(x) / Math.exp(10);
+const reexp = (x) => Math.log(x) / Math.log(Math.E);
+const log = (x) => Math.log10(x);
 const xsq = (x) => 10 ** (x);
-// const rexsq = (x) => 1000 ** (1 / x);
 const odiv = (x) => 1 / x;
-const reodiv = (x) => x ** (-1);
+const ln = (x) => Math.log(x);
 
 const AddCommand = function (value) {
 
@@ -106,7 +105,14 @@ const XsqCommand = function (value) {
 
 const OdivCommand = function (value) {
 
-  return new Command(odiv, reodiv, value);
+  return new Command(odiv, odiv, value); // 1 / x
+
+};
+
+
+const LnCommand = function (value) {
+
+  return new Command(ln, exp, value); // логарифм по основанию e
 
 };
 
@@ -114,6 +120,6 @@ export {
   AddCommand, SubCommand, MulCommand, DivCommand,
   PrcCommand, SsqCommand, SrtCommand, TsqCommand,
   TrtCommand, YsqCommand, YrtCommand, ExpCommand,
-  LogCommand, XsqCommand, OdivCommand
+  LogCommand, XsqCommand, OdivCommand, LnCommand
 };
 

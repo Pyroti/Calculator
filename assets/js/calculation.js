@@ -1,5 +1,5 @@
 import {
-  AddCommand, DivCommand, ExpCommand, LogCommand, MulCommand, OdivCommand, PrcCommand,
+  AddCommand, DivCommand, ExpCommand, LnCommand, LogCommand, MulCommand, OdivCommand, PrcCommand,
   SrtCommand, SsqCommand, SubCommand, TrtCommand, TsqCommand, XsqCommand,
   YrtCommand, YsqCommand
 } from './command';
@@ -24,7 +24,8 @@ function calculation(num1, num2, oper) {
     ['exp', new ExpCommand(+num2)],
     ['log', new LogCommand(+num2)],
     ['10x', new XsqCommand(+num2)],
-    ['1/x', new OdivCommand(+num2)]
+    ['1/x', new OdivCommand(+num2)],
+    ['ln', new LnCommand(+num2)]
   ]);
 
   // console.log('зашли в калькулятор бля');

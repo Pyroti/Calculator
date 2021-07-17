@@ -11,7 +11,6 @@ let operator = '';
 let number1 = '';
 let number2 = '';
 
-
 function showResult() {
 
   number1 = calculation(number1, number2, operator);
@@ -89,7 +88,7 @@ function clickOperator(event) {
   // console.log('нажали оператор');
   operator = parameter;
   result.value += parameter;
-  const operators = ['%', '2x', 'x2', '3x', 'x3', 'exp', 'log', '10x', '1/x'];
+  const operators = ['%', '2x', 'x2', '3x', 'x3', 'exp', 'log', '10x', '1/x', 'ln'];
   if (operators.includes(operator)) {
 
     showResult();
