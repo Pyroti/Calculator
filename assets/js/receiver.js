@@ -1,9 +1,9 @@
 
 const commands = [];
+let i = 0;
 const Calculator = function () {
 
   let current = 0;
-  let i = 0;
 
   return {
     execute(command) {
@@ -19,7 +19,7 @@ const Calculator = function () {
       if (commands.length > 0) {
 
         const command = commands.pop();
-        console.log(`удален  ${--i} из стек текущий ${current} : команд вэлю ${command.value}`);
+        console.log(`удален ${i--} из стек текущий ${current} : команд вэлю ${command.value}`);
         current = command.undo(current, command.value);
 
       }

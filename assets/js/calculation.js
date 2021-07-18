@@ -28,9 +28,6 @@ function calculation(num1, num2, oper) {
     ['ln', new LnCommand(+num2)]
   ]);
 
-  // console.log('зашли в калькулятор бля');
-  // console.log(`num1:${num1} num2:${num2} opearator:${oper}`);
-
   const calculator = new Calculator();
   calculator.setValue(+num1, oper);
 
@@ -51,7 +48,7 @@ function calculation(num1, num2, oper) {
   // const value = `${calculator.getCurrentValue().toFixed(3)}`.replace(/0*$/, '');
   const value = Number((calculator.getCurrentValue()).toFixed(15));
   result.value = value;
-  return value;
+  return `${value}`;
 
 }
 

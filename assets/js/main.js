@@ -1,4 +1,5 @@
 import { calculation } from './calculation';
+import { memoryOperation } from './memoryOperation';
 
 const operatr = document.querySelectorAll('.operation');
 const numer = document.querySelectorAll('.num');
@@ -6,6 +7,7 @@ const result = document.querySelector('.calc__result');
 const equals = document.querySelector('.calc__butt-equels');
 const clear = document.querySelector('.clear');
 const undo = document.querySelector('.undo');
+const memoryButton = document.querySelectorAll('.memory-operation');
 
 let operator = '';
 let number1 = '';
@@ -21,7 +23,6 @@ function showResult() {
 
 function hasPoint(parameter) {
 
-  number1 += '';
   if (parameter === '.' && operator === '') {
 
     if (number1.indexOf('.') === -1) {
@@ -35,8 +36,9 @@ function hasPoint(parameter) {
 
     if (number2.indexOf('.') === -1) {
 
-      number2 += '.';
-      result.value += '.';
+      const isEmpty = number2 === '' ? '0.' : '.';
+      number2 = isEmpty;
+      result.value += isEmpty;
 
     }
 
@@ -86,6 +88,11 @@ function clickOperator(event) {
 
   }
   // console.log('нажали оператор');
+  if (operator !== '' && number2 === '') {
+
+    result.value = result.value.replace(operator, '');
+
+  }
   operator = parameter;
   result.value += parameter;
   const operators = ['%', '2x', 'x2', '3x', 'x3', 'exp', 'log', '10x', '1/x', 'ln'];
@@ -124,6 +131,48 @@ function cancel() {
   operator = '';
 
 }
+/*
+function memoryOperation(event) {
+
+  const button = event.target;
+  const parameter = button.dataset.value;
+  if (parameter === 'm+') {
+
+    memory += +number1;
+
+  } else if (parameter === 'm-') {
+
+    memory -= +number1;
+
+  } else if (parameter === 'mc') {
+
+    memory = 0;
+
+  } else {
+
+    result.value = memory;
+    number1 = memory;
+
+  }
+
+} */
+
+function memory(event) {
+
+  if (number2 !== '') {
+
+    showResult();
+
+  }
+  const [value, flag] = memoryOperation(event, number1);
+  if (flag === true) {
+
+    result.value = value;
+    number1 = value;
+
+  }
+
+}
 
 operatr.forEach((but) => {
 
@@ -137,6 +186,13 @@ numer.forEach((but) => {
 
 });
 
+memoryButton.forEach((but) => {
+
+  but.addEventListener('mousedown', memory);
+
+});
+
 equals.addEventListener('mousedown', clickEquels);
 clear.addEventListener('mousedown', clickClear);
 undo.addEventListener('mousedown', cancel);
+
