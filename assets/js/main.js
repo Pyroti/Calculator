@@ -139,7 +139,7 @@ function memory(event) {
   if (flag === true) {
 
     result.value = value;
-    number1 = value;
+    number1 = `${value}`;
 
   }
 
@@ -166,4 +166,3 @@ memoryButton.forEach((but) => {
 equals.addEventListener('mousedown', clickEquels);
 clear.addEventListener('mousedown', clickClear);
 undo.addEventListener('mousedown', cancel);
-

@@ -29,7 +29,11 @@ function calculation(num1, num2, oper) {
   ]);
 
   const calculator = new Calculator();
-  calculator.setValue(+num1, oper);
+  if (oper !== 'undo') {
+
+    calculator.setValue(+num1, oper);
+
+  }
 
   if (command.has(oper)) {
 

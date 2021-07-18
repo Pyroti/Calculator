@@ -1,6 +1,8 @@
 
 const commands = [];
+const currentValueHistory = [];
 let i = 0;
+
 const Calculator = function () {
 
   let current = 0;
@@ -11,6 +13,7 @@ const Calculator = function () {
       console.log(`добавлен ${++i} в стек ${current} :  ${command.value}`);
       current = command.execute(current, command.value);
       commands.push(command);
+      currentValueHistory.push(current);
       console.log(commands);
 
     },
@@ -19,8 +22,9 @@ const Calculator = function () {
       if (commands.length > 0) {
 
         const command = commands.pop();
-        console.log(`удален ${i--} из стек текущий ${current} : команд вэлю ${command.value}`);
-        current = command.undo(current, command.value);
+        const currentValue = currentValueHistory.pop();
+        console.log(`удален ${i--} из стек текущий ${currentValue} : команд вэлю ${command.value}`);
+        current = command.undo(currentValue, command.value);
 
       }
 
@@ -31,6 +35,7 @@ const Calculator = function () {
       if (oper === 'AC') {
 
         commands.length = 0;
+        currentValueHistory.length = 0;
 
       }
 
