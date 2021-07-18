@@ -23,24 +23,20 @@ function showResult() {
 
 function hasPoint(parameter) {
 
-  if (parameter === '.' && operator === '') {
+  const ipPoint = parameter === '.';
+  const isFirstNumber = operator === '';
+  const isHasPoint1 = number1.indexOf('.') === -1;
+  const isHasPoint2 = number2.indexOf('.') === -1;
+  if (ipPoint && isFirstNumber && isHasPoint1) {
 
-    if (number1.indexOf('.') === -1) {
+    number1 += '.';
+    result.value += '.';
 
-      number1 += '.';
-      result.value += '.';
+  } else if (ipPoint && !isFirstNumber && isHasPoint2) {
 
-    }
-
-  } else if (parameter === '.' && operator !== '') {
-
-    if (number2.indexOf('.') === -1) {
-
-      const isEmpty = number2 === '' ? '0.' : '.';
-      number2 = isEmpty;
-      result.value += isEmpty;
-
-    }
+    const isEmpty = number2 === '' ? '0.' : '.';
+    number2 = isEmpty;
+    result.value += isEmpty;
 
   }
 
@@ -131,31 +127,6 @@ function cancel() {
   operator = '';
 
 }
-/*
-function memoryOperation(event) {
-
-  const button = event.target;
-  const parameter = button.dataset.value;
-  if (parameter === 'm+') {
-
-    memory += +number1;
-
-  } else if (parameter === 'm-') {
-
-    memory -= +number1;
-
-  } else if (parameter === 'mc') {
-
-    memory = 0;
-
-  } else {
-
-    result.value = memory;
-    number1 = memory;
-
-  }
-
-} */
 
 function memory(event) {
 
