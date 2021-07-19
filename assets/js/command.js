@@ -11,7 +11,7 @@ const srt = (x) => x ** (1 / 2);
 const tsq = (x) => x ** 3;
 const trt = (x) => Math.cbrt(x);
 const ysq = (x, y) => x ** y;
-const yrt = (x, y) => x ** (1 / y);
+const yrt = (x, y) => ((x < 0 && y % 2 === 1) ? (-1 * ((-1 * x) ** (1 / y))) : x ** (1 / y));
 const exp = (x) => Math.E ** x;
 const reexp = (x) => Math.log(x) / Math.log(Math.E);
 const log = (x) => Math.log10(x);
