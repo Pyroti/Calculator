@@ -19,7 +19,7 @@ function showResult() {
 
   number1 = calculation(number1, number2, operator);
   number2 = '';
-  result.value = number1;
+  // result.value = number1;
 
 }
 
@@ -46,12 +46,17 @@ function hasPoint(parameter) {
 
 function clickNumber(event) {
 
+  if (result.value === 'неправильная операция') {
+
+    result.value = number1;
+    return;
+
+  }
   const button = event.target;
   const parameter = button.dataset.value;
   const isNumber = (typeof Number(parameter) === 'number');
   const isNan = Number.isNaN(parseInt(parameter, 10));
   const zero = '0';
-
   hasPoint(parameter);
 
   if (isNumber && !isNan && operator === '') {
@@ -77,6 +82,12 @@ function clickNumber(event) {
 
 function clickOperator(event) {
 
+  if (result.value === 'неправильная операция') {
+
+    result.value = number1;
+    return;
+
+  }
   const button = event.target;
   const parameter = button.dataset.value;
   if (operator !== '' && number2 !== '') {
@@ -103,6 +114,12 @@ function clickOperator(event) {
 
 function clickEquels() {
 
+  if (result.value === 'неправильная операция') {
+
+    result.value = number1;
+    return;
+
+  }
   if (number2 !== '') {
 
     showResult();
@@ -130,6 +147,12 @@ function cancel() {
 
 function memory(event) {
 
+  if (result.value === 'неправильная операция') {
+
+    result.value = number1;
+    return;
+
+  }
   if (number2 !== '') {
 
     showResult();
@@ -147,6 +170,12 @@ function memory(event) {
 
 function negative() {
 
+  if (result.value === 'неправильная операция') {
+
+    result.value = number1;
+    return;
+
+  }
   const isFirstNumber = operator === '';
   const isSingleOperators = singleOperators.includes(operator);
   const isNumber2Empty = number2 === '';

@@ -49,10 +49,17 @@ function calculation(num1, num2, oper) {
 
   }
 
-  // const value = `${calculator.getCurrentValue().toFixed(3)}`.replace(/0*$/, '');
   const value = Number((calculator.getCurrentValue()).toFixed(15));
-  result.value = value;
-  return `${value}`;
+  if (!Number.isNaN(value) && value !== Infinity) {
+
+    result.value = value;
+    return `${value}`;
+
+  }
+
+  result.value = 'неправильная операция';
+  return '0';
+
 
 }
 
