@@ -14,6 +14,7 @@ const singleOperators = ['%', '2x', 'x2', '3x', 'x3', 'exp', 'log', '10x', '1/x'
 let operator = '';
 let number1 = '';
 let number2 = '';
+let isClear = false;
 
 function showResult() {
 
@@ -50,6 +51,12 @@ function clickNumber(event) {
 
     result.value = number1;
     return;
+
+  }
+  if (isClear) {
+
+    result.value = '';
+    isClear = false;
 
   }
   const button = event.target;
@@ -162,7 +169,9 @@ function memory(event) {
   if (flag === true) {
 
     result.value = value;
-    number1 = `${value}`;
+    // number1 = `${value}`;
+    number1 = '0';
+    isClear = true;
 
   }
 
