@@ -11,7 +11,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'index.html'
+      template: './assets/html/first.html'
     }),
     new CleanWebpackPlugin()
   ],
