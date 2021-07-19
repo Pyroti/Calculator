@@ -8,6 +8,8 @@ const equals = document.querySelector('.calc__butt-equels');
 const clear = document.querySelector('.clear');
 const undo = document.querySelector('.undo');
 const memoryButton = document.querySelectorAll('.memory-operation');
+const negativeButton = document.querySelector('.negative-operation');
+const singleOperators = ['%', '2x', 'x2', '3x', 'x3', 'exp', 'log', '10x', '1/x', 'ln'];
 
 let operator = '';
 let number1 = '';
@@ -35,7 +37,7 @@ function hasPoint(parameter) {
   } else if (ipPoint && !isFirstNumber && isHasPoint2) {
 
     const isEmpty = number2 === '' ? '0.' : '.';
-    number2 = isEmpty;
+    number2 += isEmpty;
     result.value += isEmpty;
 
   }
@@ -91,8 +93,7 @@ function clickOperator(event) {
   }
   operator = parameter;
   result.value += parameter;
-  const operators = ['%', '2x', 'x2', '3x', 'x3', 'exp', 'log', '10x', '1/x', 'ln'];
-  if (operators.includes(operator)) {
+  if (singleOperators.includes(operator)) {
 
     showResult();
 
@@ -104,11 +105,10 @@ function clickEquels() {
 
   if (number2 !== '') {
 
-    // console.log('нажали на равно');
     showResult();
+    operator = '';
 
   }
-  operator = '';
 
 }
 
@@ -145,6 +145,35 @@ function memory(event) {
 
 }
 
+function negative() {
+
+  const isFirstNumber = operator === '';
+  const isSingleOperators = singleOperators.includes(operator);
+  const isNumber2Empty = number2 === '';
+  if (isFirstNumber || isSingleOperators) {
+
+    // console.log('клик по первому числу');
+    number1 = `${Number(number1) * -1}`;
+    result.value = number1;
+
+  } else if (!isFirstNumber && !isSingleOperators && !isNumber2Empty) {
+
+    // console.log('клик по второму числу');
+    number2 = `${Number(number2) * -1}`;
+    if (Number(number2) <= 0) {
+
+      result.value = `${number1}${operator}(${number2})`;
+
+    } else {
+
+      result.value = `${number1}${operator}${number2}`;
+
+    }
+
+  }
+
+}
+
 operatr.forEach((but) => {
 
   but.addEventListener('mousedown', clickOperator);
@@ -163,6 +192,7 @@ memoryButton.forEach((but) => {
 
 });
 
+negativeButton.addEventListener('mousedown', negative);
 equals.addEventListener('mousedown', clickEquels);
 clear.addEventListener('mousedown', clickClear);
 undo.addEventListener('mousedown', cancel);
