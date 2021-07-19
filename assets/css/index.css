@@ -23,7 +23,7 @@ button{
 .container{
     display: flex;
     flex-direction: column;
-    width: 500px;
+    width: 350px;
     border-radius: 20px;
 }
 
@@ -45,10 +45,6 @@ button{
 }
 
 .separation:nth-child(6) .calc__butt:nth-child(7) {
-    flex-grow: 0.6;
-}
-
-.separation:nth-child(6) .calc__butt:nth-child(9) {
     border-radius: 0 0 16px 0;
 }
 
@@ -65,7 +61,8 @@ button{
     background: #5A5B5D;
 }
 
-.calc__butt.num{
+.calc__butt.num, 
+.separation:nth-child(6) .calc__butt:nth-child(5){
     background: #757678;
 }
 
@@ -86,6 +83,7 @@ button{
     border: none;
     cursor: default;    
     border-radius: 16px 16px 0 0;
+    resize: none;
 }
 
 .calc__result:focus{

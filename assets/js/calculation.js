@@ -49,7 +49,7 @@ function calculation(num1, num2, oper) {
 
   }
 
-  const value = Number((calculator.getCurrentValue()).toFixed(15));
+  const value = Number((calculator.getCurrentValue()).toFixed(10));
   if (!Number.isNaN(value) && value !== Infinity) {
 
     result.value = value;
