@@ -56,20 +56,20 @@ button{
     border-radius: 0 0 0 16px;
 }
 
-.calc__butt, .expr{
+.calc__butt{
     width: 50px;
     height: 50px;
     text-align: center;
-    background: #5A5B5D;
     transition: all 0.5s;
     cursor: pointer;
+    background: #5A5B5D;
 }
 
-.calc__butt.num, .separation:nth-child(6) .calc__butt:nth-child(8){
+.calc__butt.num{
     background: #757678;
 }
 
-.calc__butt.expr, .expr{
+.calc__butt.expr{
     background: #FE9F07;
 }
 

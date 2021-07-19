@@ -4,7 +4,7 @@ import { memoryOperation } from './memoryOperation';
 const operatr = document.querySelectorAll('.operation');
 const numer = document.querySelectorAll('.num');
 const result = document.querySelector('.calc__result');
-const equals = document.querySelector('.calc__butt-equels');
+const equals = document.querySelector('.equels');
 const clear = document.querySelector('.clear');
 const undo = document.querySelector('.undo');
 const memoryButton = document.querySelectorAll('.memory-operation');
