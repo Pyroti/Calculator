@@ -1,3 +1,5 @@
+
+import '../css/index.css';
 import { calculation } from './calculation';
 import { memoryOperation } from './memoryOperation';
 
@@ -10,6 +12,7 @@ const undo = document.querySelector('.undo');
 const memoryButton = document.querySelectorAll('.memory-operation');
 const negativeButton = document.querySelector('.negative-operation');
 const singleOperators = ['%', '2x', 'x2', '3x', 'x3', 'exp', 'log', '10x', '1/x', 'ln'];
+const error = 'Error. Try again';
 
 let operator = '';
 let number1 = '';
@@ -45,7 +48,7 @@ function hasPoint(parameter) {
 
 function clickNumber(event) {
 
-  if (result.value === 'неправильная операция') {
+  if (result.value === error) {
 
     result.value = number1;
     operator = '';
@@ -61,7 +64,6 @@ function clickNumber(event) {
 
   if (isNumber && !isNan && operator === '') {
 
-    // console.log('клик по первому числу');
     if (result.value === zero) {
 
       result.value = '';
@@ -72,7 +74,6 @@ function clickNumber(event) {
 
   } else if (isNumber && !isNan && operator !== '') {
 
-    // console.log('клик по второму числу');
     number2 += parameter;
     result.value += parameter;
 
@@ -82,7 +83,7 @@ function clickNumber(event) {
 
 function clickOperator(event) {
 
-  if (result.value === 'неправильная операция') {
+  if (result.value === error) {
 
     result.value = number1;
     return;
@@ -92,11 +93,9 @@ function clickOperator(event) {
   const parameter = button.dataset.value;
   if (operator !== '' && number2 !== '') {
 
-    // console.log('нажали на второй оператор');
     showResult();
 
   }
-  // console.log('нажали оператор');
   if (operator !== '' && number2 === '') {
 
     result.value = result.value.replace(operator, '');
@@ -114,7 +113,7 @@ function clickOperator(event) {
 
 function clickEquels() {
 
-  if (result.value === 'неправильная операция') {
+  if (result.value === error) {
 
     result.value = number1;
     return;
@@ -147,7 +146,7 @@ function cancel() {
 
 function memory(event) {
 
-  if (result.value === 'неправильная операция') {
+  if (result.value === error) {
 
     result.value = number1;
     return;
@@ -170,7 +169,7 @@ function memory(event) {
 
 function negative() {
 
-  if (result.value === 'неправильная операция') {
+  if (result.value === error) {
 
     result.value = number1;
     return;
@@ -181,13 +180,11 @@ function negative() {
   const isNumber2Empty = number2 === '';
   if (isFirstNumber || isSingleOperators) {
 
-    // console.log('клик по первому числу');
     number1 = `${Number(number1) * -1}`;
     result.value = number1;
 
   } else if (!isFirstNumber && !isSingleOperators && !isNumber2Empty) {
 
-    // console.log('клик по второму числу');
     number2 = `${Number(number2) * -1}`;
     if (Number(number2) <= 0) {
 

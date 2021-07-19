@@ -57,7 +57,7 @@ function calculation(num1, num2, oper) {
 
   }
 
-  result.value = 'неправильная операция';
+  result.value = 'Error. Try again';
   return '0';
 
 
