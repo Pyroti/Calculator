@@ -2,22 +2,34 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: white;
+    color: var(--symbol-color);
     font-family: 'Roboto';
 }
+
+:root {
+    --symbol-color: white;
+    --main-bg-color: #5A5B5D;
+    --num-bg-color: #757678;
+    --grad-first-bg-color:powderblue;
+    --grad-second-bg-color:pink;
+    --button-border-bg-color: #4A4C4D;
+    --easy-oper-bg-color:#FE9F07;
+    --active-buuton-bg-color:#FF7A6B;
+    --result-bg-color: #48494B;
+  }
 
 .wrapper{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(to top left, powderblue, pink);
+    background: linear-gradient(to top left, var(--grad-first-bg-color), var(--grad-second-bg-color));
 }
 
 button{
     margin: -2px;
     padding: 0;
-    border: 1px solid #4A4C4D;
+    border: 1px solid var(--button-border-bg-color);
 }
 
 .container{
@@ -58,25 +70,25 @@ button{
     text-align: center;
     transition: all 0.5s;
     cursor: pointer;
-    background: #5A5B5D;
+    background: var(--main-bg-color);
 }
 
 .calc__butt.num, 
 .separation:nth-child(6) .calc__butt:nth-child(5){
-    background: #757678;
+    background: var(--num-bg-color);
 }
 
 .calc__butt.expr{
-    background: #FE9F07;
+    background: var(--easy-oper-bg-color);
 }
 
 .calc__butt:active + span, .calc__butt:active{
-    background: #FF7A6B;
+    background: var(--active-buuton-bg-color);
 }
 
 .calc__result{
     padding: 15px 10px 0 0;
-    background: #48494B;
+    background: var(--result-bg-color);
     font-size: 40px;
     margin-left: 2px;
     text-align: right;

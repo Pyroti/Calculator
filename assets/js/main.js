@@ -19,7 +19,6 @@ function showResult() {
 
   number1 = calculation(number1, number2, operator);
   number2 = '';
-  // result.value = number1;
 
 }
 
@@ -49,6 +48,7 @@ function clickNumber(event) {
   if (result.value === 'неправильная операция') {
 
     result.value = number1;
+    operator = '';
     return;
 
   }

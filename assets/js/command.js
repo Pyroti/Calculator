@@ -9,7 +9,7 @@ const reprc = (x) => x * 100;
 const ssq = (x) => x ** 2;
 const srt = (x) => x ** (1 / 2);
 const tsq = (x) => x ** 3;
-const trt = (x) => x ** (1 / 3);
+const trt = (x) => Math.cbrt(x);
 const ysq = (x, y) => x ** y;
 const yrt = (x, y) => x ** (1 / y);
 const exp = (x) => Math.E ** x;
