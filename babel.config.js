@@ -1,9 +1,9 @@
 export const presets = [
   '@babel/preset-env',
   '@babel/preset-react',
-  '@babel/preset-flow',
+  '@babel/preset-flow'
 ];
 export const plugins = [
   'babel-plugin-styled-components',
-  '@babel/plugin-proposal-class-properties',
+  '@babel/plugin-proposal-class-properties'
 ];

@@ -1,7 +1,6 @@
-
 import '../css/index.css';
-import { calculation } from './calculation';
-import { memoryOperation } from './memoryOperation';
+import { calculation } from './calculation.js';
+import { memoryOperation } from './memoryOperation.js';
 
 const operatr = document.querySelectorAll('.operation');
 const numer = document.querySelectorAll('.num');
@@ -20,7 +19,7 @@ let number2 = '';
 
 function showResult() {
 
-  number1 = calculation(number1, number2, operator);
+  [number1, result.value] = calculation(number1, number2, operator);
   number2 = '';
 
 }

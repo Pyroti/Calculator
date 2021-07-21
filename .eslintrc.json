@@ -72,7 +72,15 @@
       "linebreak-style": ["error", "windows"],
       "import/prefer-default-export": "off",
       "comma-dangle": ["error", "never"],
-      "no-multiple-empty-lines": ["error", { "max": 2, "maxEOF": 1 }]
+      "no-multiple-empty-lines": ["error", { "max": 2, "maxEOF": 1 }],
+      "import/extensions": [
+        "error",
+        "ignorePackages",
+        {
+          "js": "always"
+        }
+     ]
+      
     }
   }
   

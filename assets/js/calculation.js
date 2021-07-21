@@ -2,10 +2,10 @@ import {
   AddCommand, DivCommand, ExpCommand, LnCommand, LogCommand, MulCommand, OdivCommand, PrcCommand,
   SrtCommand, SsqCommand, SubCommand, TrtCommand, TsqCommand, XsqCommand,
   YrtCommand, YsqCommand
-} from './command';
-import { Calculator } from './receiver';
+} from './command.js';
+import { Calculator } from './receiver.js';
 
-const result = document.querySelector('.calc__result');
+// const result = document.querySelector('.calc__result');
 
 function calculation(num1, num2, oper) {
 
@@ -52,14 +52,15 @@ function calculation(num1, num2, oper) {
   const value = Number((calculator.getCurrentValue()).toFixed(10));
   if (!Number.isNaN(value) && value !== Infinity) {
 
-    result.value = value;
-    return `${value}`;
+    // result.value = value;
+    // return `${value}`;
+    return [`${value}`, value];
 
   }
 
-  result.value = 'Error. Try again';
-  return '0';
-
+  // result.value = 'Error. Try again';
+  // return '0';
+  return ['0', 'Error. Try again'];
 
 }
 
