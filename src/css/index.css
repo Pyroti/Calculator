@@ -12,10 +12,11 @@
     --num-bg-color: #757678;
     --grad-first-bg-color:powderblue;
     --grad-second-bg-color:pink;
-    --button-border-bg-color: #4A4C4D;
+    --button-border-bg-color: #244251;
     --easy-oper-bg-color:#FE9F07;
     --active-buuton-bg-color:#FF7A6B;
     --result-bg-color: #48494B;
+    --line-gradien: linear-gradient(to top left, var(--grad-first-bg-color), var(--grad-second-bg-color));
   }
 
 .wrapper{
@@ -23,7 +24,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(to top left, var(--grad-first-bg-color), var(--grad-second-bg-color));
+    background: var(--line-gradien);
 }
 
 button{
@@ -35,7 +36,7 @@ button{
 .container{
     display: flex;
     flex-direction: column;
-    width: 350px;
+    width: 346px;
     border-radius: 20px;
 }
 
@@ -46,21 +47,11 @@ button{
     justify-content:space-around;
 }
 
-.separation:not(1){
-    margin-top: 4px;
-    display:flex;
-    justify-content:space-around;
-}
-
-.separation:nth-child(6){
-    display: flex;
-}
-
-.separation:nth-child(6) .calc__butt:nth-child(7) {
+.frame-right {
     border-radius: 0 0 16px 0;
 }
 
-.separation:nth-child(6) .calc__butt:nth-child(1) {
+.frame-left {
     border-radius: 0 0 0 16px;
 }
 
@@ -74,7 +65,7 @@ button{
 }
 
 .calc__butt.num, 
-.separation:nth-child(6) .calc__butt:nth-child(5){
+.negative-operation{
     background: var(--num-bg-color);
 }
 
