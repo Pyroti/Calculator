@@ -1,7 +1,8 @@
-import { calculation } from './calculation';
-import { memoryOperation } from './memoryOperation';
-import { negativeNumber } from './negativeNumber';
-import { numberEvent } from './numberEvent';
+import { calculation } from './computation/calculation.js';
+import { memoryOperation } from './computation/memoryOperation.js';
+import { operation } from './constants/operation.js';
+import { negativeNumber } from './processingOfClicks/negativeNumber.js';
+import { numberEvent } from './processingOfClicks/numberEvent.js';
 
 const operatr = document.querySelectorAll('.operation');
 const numer = document.querySelectorAll('.num');
@@ -13,8 +14,6 @@ const memoryButton = document.querySelectorAll('.memory-operation');
 const negativeButton = document.querySelector('.negative-operation');
 const singleOperators = ['%', '2x', 'x2', '3x', 'x3', 'exp', 'log', '10x', '1/x', 'ln'];
 const error = 'Error. Try again';
-const ac = 'AC';
-const undoString = 'undo';
 
 let operator = '';
 let number1 = '';
@@ -89,7 +88,7 @@ function clickEquels() {
 
 function clickClear() {
 
-  operator = ac;
+  operator = operation.ac;
   showResult();
   operator = '';
 
@@ -97,7 +96,7 @@ function clickClear() {
 
 function cancel() {
 
-  operator = undoString;
+  operator = operation.undo;
   showResult();
   operator = '';
 
@@ -116,7 +115,9 @@ function memory(event) {
     showResult();
 
   }
-  const [value, flag] = memoryOperation(event, number1);
+  const button = event.target;
+  const parameter = button.dataset.value;
+  const [value, flag] = memoryOperation(parameter, number1);
   if (flag === true) {
 
     result.value = value;

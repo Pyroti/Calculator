@@ -1,5 +1,5 @@
-import '../css/index.css';
-import { additions, separations } from "./state";
+import '../../../index.css';
+import { additions, separations } from './state.js';
 
 const root = document.querySelector('body');
 
@@ -18,12 +18,12 @@ root.append(wrapper);
 wrapper.append(container);
 container.append(result);
 
-for (const key in separations) {
+Object.values(separations).forEach((sValue) => {
 
   const node = document.createElement('span');
   node.className = 'separation';
 
-  separations[key].forEach((separation) => {
+  sValue.forEach((separation) => {
 
     const button = document.createElement('button');
     button.className = separation.class;
@@ -31,7 +31,7 @@ for (const key in separations) {
     button.innerText = separation.value;
 
     const { id } = separation;
-    if (additions.hasOwnProperty(id)) {
+    if (id in additions) {
 
       const span = document.createElement('span');
       span.className = additions[id].class;
@@ -56,4 +56,4 @@ for (const key in separations) {
 
   container.append(node);
 
-}
+});

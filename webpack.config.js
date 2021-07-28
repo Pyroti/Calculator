@@ -8,8 +8,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 export default {
   mode: 'production',
   entry: {
-    render: './src/js/render.js',
-    logics: ["./src/js/main.js"]
+    render: './src/core/renderPage/render.js',
+    logics: ["./src/core/main.js"]
   },
   output: {
     path: path.resolve(__dirname, 'public'),
@@ -22,7 +22,7 @@ export default {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/html/index.html'
+      template: './index.html'
     }),
     new CleanWebpackPlugin()
   ],
@@ -31,12 +31,6 @@ export default {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader']
-      },
-      {
-        test: /\.m?js/,
-        resolve: {
-          fullySpecified: false
-        }
       },
     ]
   }

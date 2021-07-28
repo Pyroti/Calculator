@@ -1,6 +1,7 @@
+import { operation } from '../constants/operation.js';
+
 const commands = [];
 const currentValueHistory = [];
-const ac = 'AC';
 
 class Calculator {
 
@@ -37,7 +38,7 @@ class Calculator {
   setValue(value, oper) {
 
     this.current = value;
-    if (oper === ac) {
+    if (oper === operation.ac) {
 
       commands.length = 0;
       currentValueHistory.length = 0;

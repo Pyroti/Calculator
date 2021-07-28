@@ -1,4 +1,4 @@
-import { hasPoint } from './hasPoint';
+import { hasPoint } from './hasPoint.js';
 
 const zero = '0';
 

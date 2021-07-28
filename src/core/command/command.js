@@ -1,4 +1,4 @@
-import { Command } from './interface';
+import { Command } from '../interfaces/interface.js';
 
 const add = (x, y) => x + y;
 const sub = (x, y) => x - y;

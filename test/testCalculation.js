@@ -1,5 +1,5 @@
 import chai from 'chai';
-import { calculation } from '../src/js/calculation';
+import { calculation } from '../src/core/computation/calculation.js';
 
 const { assert } = chai;
 
