@@ -1,4 +1,4 @@
-const singleOperators = ['%', '2x', 'x2', '3x', 'x3', 'exp', 'log', '10x', '1/x', 'ln'];
+import { singleOperators } from '../constants/singleOperators.js';
 
 function negativeNumber(result, operator, number1, number2) {
 

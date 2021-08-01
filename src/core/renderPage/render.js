@@ -1,5 +1,7 @@
 import '../../../index.css';
 import { additions, separations } from './state.js';
+const rootY = 17;
+const rootCube = 24;
 
 const root = document.querySelector('body');
 
@@ -38,7 +40,7 @@ Object.values(separations).forEach((sValue) => {
       span.setAttribute('data-value', additions[id].data);
       span.innerText = additions[id].value;
 
-      if (id !== 24 && id !== 17) {
+      if (id !== rootY && id !== rootCube) {
 
         button.append(span);
 

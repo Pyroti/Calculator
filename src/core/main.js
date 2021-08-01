@@ -1,6 +1,7 @@
 import { calculation } from './computation/calculation.js';
 import { memoryOperation } from './computation/memoryOperation.js';
 import { operation } from './constants/operation.js';
+import { singleOperators } from './constants/singleOperators.js';
 import { negativeNumber } from './processingOfClicks/negativeNumber.js';
 import { numberEvent } from './processingOfClicks/numberEvent.js';
 
@@ -12,7 +13,7 @@ const clear = document.querySelector('.clear');
 const undo = document.querySelector('.undo');
 const memoryButton = document.querySelectorAll('.memory-operation');
 const negativeButton = document.querySelector('.negative-operation');
-const singleOperators = ['%', '2x', 'x2', '3x', 'x3', 'exp', 'log', '10x', '1/x', 'ln'];
+
 const error = 'Error. Try again';
 
 let operator = '';
