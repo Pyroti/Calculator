@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "build": "webpack",
-    "test": "mocha"
+    "test": "mocha",
+    "start": "webpack serve --open"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +17,7 @@
     "chai": "^4.3.4",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
     "css-loader": "^6.1.0",
+    "eslint": "^7.31.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-rallycoding": "^3.2.0",
@@ -29,9 +31,11 @@
     "prettier": "^2.3.2",
     "style-loader": "^3.1.0",
     "webpack": "^5.44.0",
-    "webpack-cli": "^4.7.2"
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
+    "@babel/eslint-parser": "^7.14.7",
     "commonjs-variables-for-esmodules": "^1.1.0"
   }
 }

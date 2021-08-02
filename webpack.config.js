@@ -7,14 +7,22 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export default {
   mode: 'production',
-  entry: './assets/js/main.js',
+  entry: {
+    render: './src/core/renderPage/render.js',
+    logics: ["./src/core/main.js"]
+  },
   output: {
     path: path.resolve(__dirname, 'public'),
-    filename: 'bundle.js'
+    filename: '[name].bundle.js'
+  },
+  devServer: {
+    contentBase: path.join(__dirname, 'public'),
+    compress: true,
+    port: 3700,
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './assets/html/index.html'
+      template: './index.html'
     }),
     new CleanWebpackPlugin()
   ],
@@ -23,7 +31,7 @@ export default {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader']
-      }
+      },
     ]
   }
 };

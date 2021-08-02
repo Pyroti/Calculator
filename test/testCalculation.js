@@ -1,5 +1,5 @@
 import chai from 'chai';
-import { calculation } from '../assets/js/calculation.js';
+import { calculation } from '../src/core/computation/calculation.js';
 
 const { assert } = chai;
 
@@ -29,14 +29,14 @@ describe('Calculater', () => {
   it('Calculater should return -5', () => {
 
     const result = calculation('-125', '0', '3x')[1];
-    assert.isNotNull(result, '-5');
+    assert.equal(result, '-5');
 
   });
 
   it('Calculater should return error', () => {
 
     const result = calculation('-125', '0', '2x')[1];
-    assert.isNotNull(result, 'Error. Try again');
+    assert.equal(result, 'Error. Try again');
 
   });
 
